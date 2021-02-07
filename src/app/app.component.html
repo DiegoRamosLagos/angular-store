@@ -1,31 +1,31 @@
-<input type="text" [(ngModel)]="title">
-{{title}}
+<input type="text" [(ngModel)]="title" />
+{{ title }}
 
-<app-product></app-product>
-
-<div *ngIf="title === 'Diego'">
-    This is a div
-</div>
+<div *ngIf="title === 'Diego'">This is a div</div>
 
 <div [ngSwitch]="title">
-    <p *ngSwitchCase="'Nicolás'">This is Nicolás</p>
-    <p *ngSwitchCase="'Diego'">This is Diego</p>
-    <p *ngSwitchCase="'Pedro'">This is Pedro</p>
-    <p *ngSwitchDefault>No match</p>
+  <p *ngSwitchCase="'Nicolás'">This is Nicolás</p>
+  <p *ngSwitchCase="'Diego'">This is Diego</p>
+  <p *ngSwitchCase="'Pedro'">This is Pedro</p>
+  <p *ngSwitchDefault>No match</p>
 </div>
 
 <button (click)="addItem()">Add item</button>
 
 <ul>
-    <li *ngIf="items.length === 0">Empty list</li>
-    <li *ngFor="let name of items; index as i">
-        {{name}} {{i}}
-        <button (click)="deleteItem(i)">delete</button>
-    </li>
+  <li *ngIf="items.length === 0">Empty list</li>
+  <li *ngFor="let name of items; index as i">
+    {{ name }} {{ i }}
+    <button (click)="deleteItem(i)">delete</button>
+  </li>
 </ul>
 
-<div *ngFor="let product of products">
-    {{product.title}}
-    <img [src]="product.image" alt="">
-    {{product.price}}
+<div class="product-grid">
+  <!--Property binding: []; Event binding: () -->
+  <app-product
+    *ngFor="let product of products"
+    (productAdded)="clickProduct($event)"
+    [product]="product"
+  >
+  </app-product>
 </div>
