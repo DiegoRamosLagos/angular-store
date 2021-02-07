@@ -1,0 +1,9 @@
+<div class="product-grid">
+  <!--Property binding: []; Event binding: () -->
+  <app-product
+    *ngFor="let product of products"
+    (productAdded)="clickProduct($event)"
+    [product]="product"
+  >
+  </app-product>
+</div>
