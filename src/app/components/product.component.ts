@@ -23,6 +23,8 @@ export class ProductComponent
   @Output() // Event binding
   productAdded: EventEmitter<any> = new EventEmitter();
 
+  today: Date = new Date();
+
   constructor() {
     console.log('1. constructor');
   }
