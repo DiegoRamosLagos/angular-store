@@ -39,9 +39,9 @@ export class ProductComponent
     console.log('3. ngOnInit');
   }
 
-  ngDoCheck(): void {
-    console.log('4. ngDoCheck');
-  }
+  // ngDoCheck(): void {
+  //   console.log('4. ngDoCheck');
+  // }
 
   ngOnDestroy(): void {
     console.log('5. ngOnDestroy');
