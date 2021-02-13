@@ -16,7 +16,7 @@ import { Product } from '../product.model';
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent
-  implements /*OnChanges*/ DoCheck, OnInit, OnDestroy {
+  implements /*OnChanges*/ OnInit, OnDestroy {
   @Input() // Property binding
   product: Product;
 
