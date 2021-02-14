@@ -9,6 +9,7 @@ import { DemoComponent } from './demo/demo.component';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { LayoutComponent } from './layout/components/layout/layout.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent, DemoComponent, LayoutComponent],
@@ -18,6 +19,7 @@ import { LayoutComponent } from './layout/components/layout/layout.component';
     FormsModule,
     SharedModule,
     CoreModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
