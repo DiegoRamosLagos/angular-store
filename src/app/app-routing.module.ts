@@ -49,6 +49,13 @@ const routes: Routes = [
     canActivate: [AdminGuard],
   },
   {
+    path: 'admin',
+    loadChildren: () =>
+      import('./admin/admin.module').then(
+        (module) => module.AdminModule,
+      ),
+  },
+  {
     path: '**',
     loadChildren: () =>
       import('./page-not-found/page-not-found.module').then(
