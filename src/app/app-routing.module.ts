@@ -5,12 +5,8 @@ import {
   PreloadAllModules,
 } from '@angular/router';
 import { AdminGuard } from './admin.guard';
-import { ContactComponent } from './contact/contact.component';
 import { DemoComponent } from './demo/demo.component';
-import { LayoutComponent } from './layout/layout.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { ProductsComponent } from './products/products.component';
+import { LayoutComponent } from './layout/components/layout/layout.component';
 
 const routes: Routes = [
   {
@@ -31,16 +27,18 @@ const routes: Routes = [
       },
       {
         path: 'products',
-        component: ProductsComponent,
+        loadChildren: () =>
+          import('./product/product.module').then(
+            (module) => module.ProductModule,
+          ),
         canActivate: [AdminGuard],
       },
       {
-        path: 'products/:id',
-        component: ProductDetailComponent,
-      },
-      {
         path: 'contact',
-        component: ContactComponent,
+        loadChildren: () =>
+          import('./contact/contact.module').then(
+            (module) => module.ContactModule,
+          ),
         canActivate: [AdminGuard],
       },
     ],
@@ -48,10 +46,14 @@ const routes: Routes = [
   {
     path: 'demo',
     component: DemoComponent,
+    canActivate: [AdminGuard],
   },
   {
     path: '**',
-    component: PageNotFoundComponent,
+    loadChildren: () =>
+      import('./page-not-found/page-not-found.module').then(
+        (module) => module.PageNotFoundModule,
+      ),
   },
 ];
 
