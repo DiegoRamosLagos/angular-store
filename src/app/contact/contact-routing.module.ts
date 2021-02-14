@@ -7,7 +7,6 @@ const routes: Routes = [
   {
     path: 'contact',
     component: ContactComponent,
-    canLoad: [AdminGuard],
   },
 ];
 

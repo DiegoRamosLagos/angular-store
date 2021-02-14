@@ -8,9 +8,10 @@ import { AppComponent } from './app.component';
 import { DemoComponent } from './demo/demo.component';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
+import { LayoutComponent } from './layout/components/layout/layout.component';
 
 @NgModule({
-  declarations: [AppComponent, DemoComponent],
+  declarations: [AppComponent, DemoComponent, LayoutComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

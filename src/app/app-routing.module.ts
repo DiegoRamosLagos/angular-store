@@ -4,19 +4,49 @@ import {
   RouterModule,
   PreloadAllModules,
 } from '@angular/router';
+import { AdminGuard } from './admin.guard';
 import { DemoComponent } from './demo/demo.component';
+import { LayoutComponent } from './layout/components/layout/layout.component';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () =>
-      import('./layout/layout.module').then(
-        (module) => module.LayoutModule,
-      ),
+    component: LayoutComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full',
+      },
+      {
+        path: 'home',
+        loadChildren: () =>
+          import('./home/home.module').then(
+            (module) => module.HomeModule,
+          ),
+      },
+      {
+        path: 'products',
+        loadChildren: () =>
+          import('./product/product.module').then(
+            (module) => module.ProductModule,
+          ),
+        canActivate: [AdminGuard],
+      },
+      {
+        path: 'contact',
+        loadChildren: () =>
+          import('./contact/contact.module').then(
+            (module) => module.ContactModule,
+          ),
+        canActivate: [AdminGuard],
+      },
+    ],
   },
   {
     path: 'demo',
     component: DemoComponent,
+    canActivate: [AdminGuard],
   },
   {
     path: '**',
