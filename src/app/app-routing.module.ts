@@ -4,46 +4,15 @@ import {
   RouterModule,
   PreloadAllModules,
 } from '@angular/router';
-import { AdminGuard } from './admin.guard';
-import { ContactComponent } from './contact/contact.component';
 import { DemoComponent } from './demo/demo.component';
-import { LayoutComponent } from './layout/layout.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { ProductsComponent } from './products/products.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: LayoutComponent,
-    children: [
-      {
-        path: '',
-        redirectTo: '/home',
-        pathMatch: 'full',
-      },
-      {
-        path: 'home',
-        loadChildren: () =>
-          import('./home/home.module').then(
-            (module) => module.HomeModule,
-          ),
-      },
-      {
-        path: 'products',
-        component: ProductsComponent,
-        canActivate: [AdminGuard],
-      },
-      {
-        path: 'products/:id',
-        component: ProductDetailComponent,
-      },
-      {
-        path: 'contact',
-        component: ContactComponent,
-        canActivate: [AdminGuard],
-      },
-    ],
+    loadChildren: () =>
+      import('./layout/layout.module').then(
+        (module) => module.LayoutModule,
+      ),
   },
   {
     path: 'demo',
@@ -51,7 +20,10 @@ const routes: Routes = [
   },
   {
     path: '**',
-    component: PageNotFoundComponent,
+    loadChildren: () =>
+      import('./page-not-found/page-not-found.module').then(
+        (module) => module.PageNotFoundModule,
+      ),
   },
 ];
 
