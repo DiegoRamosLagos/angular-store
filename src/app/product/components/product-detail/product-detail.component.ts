@@ -27,4 +27,17 @@ export class ProductDetailComponent implements OnInit {
       .getProduct(id)
       .subscribe((prod) => (this.product = prod));
   }
+
+  createProduct(): any {
+    const newProduct: Product = {
+      id: '222',
+      title: 'New from angular',
+      image: 'assets/images/mug.png',
+      price: 3000,
+      description: 'new product',
+    };
+    this.productsService
+      .createProduct(newProduct)
+      .subscribe((product) => console.log(product));
+  }
 }

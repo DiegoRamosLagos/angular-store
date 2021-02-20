@@ -22,4 +22,11 @@ export class ProductsService {
       environment.url_api + this.productsPath + `/${id}`,
     );
   }
+
+  createProduct(product: Product): any {
+    return this.http.post(
+      environment.url_api + this.productsPath,
+      product,
+    );
+  }
 }
