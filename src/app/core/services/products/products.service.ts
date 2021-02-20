@@ -37,7 +37,7 @@ export class ProductsService {
     );
   }
 
-  deleteProduct(id: string): any {
+  deleteProduct(id: string) {
     return this.http.delete<Product>(
       environment.url_api + this.productsPath + `/${id}`,
     );
