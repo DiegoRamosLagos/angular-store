@@ -29,4 +29,17 @@ export class ProductsService {
       product,
     );
   }
+
+  updateProduct(id: string, changes: Partial<Product>): any {
+    return this.http.put(
+      environment.url_api + this.productsPath + `/${id}`,
+      changes,
+    );
+  }
+
+  deleteProduct(id: string): any {
+    return this.http.delete<Product>(
+      environment.url_api + this.productsPath + `/${id}`,
+    );
+  }
 }
