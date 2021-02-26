@@ -10,6 +10,12 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [],
@@ -25,6 +31,12 @@ import { MatListModule } from '@angular/material/list';
     MatRadioModule,
     MatSidenavModule,
     MatListModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatGridListModule,
+    MatMenuModule,
+    LayoutModule,
   ],
   exports: [
     MatButtonModule,
@@ -37,6 +49,12 @@ import { MatListModule } from '@angular/material/list';
     MatRadioModule,
     MatSidenavModule,
     MatListModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatGridListModule,
+    MatMenuModule,
+    LayoutModule,
   ],
 })
 export class MaterialModule {}
