@@ -41,7 +41,21 @@
       <div class="col-xs-12 col-md-4">
         <div class="box">
           <h3>Contact</h3>
-          <input type="text" />
+          <mat-form-field>
+            <input
+              matInput
+              [formControl]="emailField"
+              type="text"
+              placeholder="type your email"
+            />
+          </mat-form-field>
+          <button
+            mat-raised-button
+            [disabled]="emailField.invalid"
+            (click)="sendMail()"
+          >
+            send
+          </button>
         </div>
       </div>
     </div>
