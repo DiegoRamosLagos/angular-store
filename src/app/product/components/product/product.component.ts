@@ -3,11 +3,10 @@ import {
   EventEmitter,
   Input,
   Output,
-  /*OnChanges*/ DoCheck,
-  SimpleChanges,
   OnInit,
   OnDestroy,
 } from '@angular/core';
+import { CartService } from 'src/app/core/services/cart.service';
 import { Product } from 'src/app/product.model';
 
 @Component({
@@ -25,7 +24,7 @@ export class ProductComponent
 
   today: Date = new Date();
 
-  constructor() {
+  constructor(private cartService: CartService) {
     console.log('1. constructor');
   }
 
@@ -48,7 +47,6 @@ export class ProductComponent
   }
 
   addToCart(): void {
-    console.log('Add to cart');
-    this.productAdded.emit(this.product.id);
+    this.cartService.addCart(this.product);
   }
 }
