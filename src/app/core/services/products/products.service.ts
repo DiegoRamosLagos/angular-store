@@ -23,14 +23,14 @@ export class ProductsService {
     );
   }
 
-  createProduct(product: Product): any {
+  createProduct(product: Product) {
     return this.http.post(
       environment.url_api + this.productsPath,
       product,
     );
   }
 
-  updateProduct(id: string, changes: Partial<Product>): any {
+  updateProduct(id: string, changes: Partial<Product>) {
     return this.http.put(
       environment.url_api + this.productsPath + `/${id}`,
       changes,
