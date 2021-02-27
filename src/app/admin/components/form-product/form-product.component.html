@@ -36,6 +36,14 @@
               formControlName="price"
               placeholder="price"
           /></mat-form-field>
+          <div *ngIf="priceField.errors && priceField.dirty">
+            <mat-error *ngIf="priceField.hasError('price_invalid')"
+              >Price should be less or equal than 10000</mat-error
+            >
+            <mat-error *ngIf="priceField.hasError('required')"
+              >Price is is required</mat-error
+            >
+          </div>
         </div>
       </div>
       <div class="row">
@@ -52,7 +60,13 @@
       <form [formGroup]="form"></form>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button type="submit">Save</button>
+      <button
+        [disabled]="form.invalid"
+        mat-raised-button
+        type="submit"
+      >
+        Save
+      </button>
     </mat-card-actions>
   </mat-card>
 </form>
