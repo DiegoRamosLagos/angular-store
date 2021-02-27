@@ -1,0 +1,63 @@
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-4">
+        <div class="box">
+          <h3>Products</h3>
+          <ul>
+            <li>
+              <a
+                routerLink="/products"
+                [queryParams]="{ type: 'news' }"
+                >Our products</a
+              >
+            </li>
+            <li>
+              <a
+                routerLink="/products"
+                [queryParams]="{ type: 'offer' }"
+                >On sale</a
+              >
+            </li>
+            <li>
+              <a
+                routerLink="/products"
+                [queryParams]="{ type: 'latest' }"
+                >Last products</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <div class="box">
+          <h3>About</h3>
+          <ul>
+            <li><a routerLink="/about-us">About us</a></li>
+            <li><a routerLink="/stores">Our stores</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <div class="box">
+          <h3>Contact</h3>
+          <mat-form-field>
+            <input
+              matInput
+              [formControl]="emailField"
+              type="text"
+              placeholder="type your email"
+            />
+          </mat-form-field>
+          <button
+            mat-raised-button
+            [disabled]="emailField.invalid"
+            (click)="sendMail()"
+          >
+            send
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
