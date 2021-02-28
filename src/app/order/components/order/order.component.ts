@@ -13,6 +13,7 @@ export class OrderComponent implements OnInit {
   products$: Observable<Product[]>;
 
   constructor(private cartService: CartService) {
+    // constructor
     this.products$ = this.cartService.cart$.pipe(
       map((products: []) => {
         const joined = [...new Set(products)];
