@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { CartService } from 'src/app/core/services/cart.service';
 import { Product } from 'src/app/product.model';
 
@@ -12,7 +13,12 @@ export class OrderComponent implements OnInit {
   products$: Observable<Product[]>;
 
   constructor(private cartService: CartService) {
-    this.products$ = this.cartService.cart$;
+    this.products$ = this.cartService.cart$.pipe(
+      map((products: []) => {
+        const joined = [...new Set(products)];
+        return joined;
+      }),
+    );
   }
 
   ngOnInit(): void {}
