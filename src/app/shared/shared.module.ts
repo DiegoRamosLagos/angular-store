@@ -8,6 +8,8 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 import { CartComponent } from './components/cart/cart.component';
+import { TotalPipe } from './pipes/repeat-product/total.pipe';
+import { QuantityPipe } from './pipes/repeat-product/quantity.pipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { CartComponent } from './components/cart/cart.component';
     HeaderComponent,
     FooterComponent,
     CartComponent,
+    TotalPipe,
+    QuantityPipe,
   ],
   exports: [
     ExponentialPipe,
@@ -23,6 +27,8 @@ import { CartComponent } from './components/cart/cart.component';
     HeaderComponent,
     FooterComponent,
     CartComponent,
+    TotalPipe,
+    QuantityPipe,
   ],
   imports: [
     CommonModule,
