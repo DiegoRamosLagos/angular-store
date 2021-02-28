@@ -41,6 +41,13 @@ const routes: Routes = [
           ),
         canActivate: [AdminGuard],
       },
+      {
+        path: 'order',
+        loadChildren: () =>
+          import('./order/order.module').then(
+            (module) => module.OrderModule,
+          ),
+      },
     ],
   },
   {
